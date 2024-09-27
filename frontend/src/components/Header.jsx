@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
   return (
-    <div className='flex justify-between bg-primary text-white m-5 p-12'>
+    <div className='flex justify-between gap-5 bg-primary text-white m-5 p-12'>
        <div className='content-center'>
             <p className='text-5xl m-2 p-2'>Book Appointment <br/> With Trusted Doctors</p>
             <div className='flex direction-row w-3/4'>
@@ -11,8 +11,8 @@ const Header = () => {
                 <p>Simply browse through our extensive list of trusted doctors,
                 schedule your appointment hassle-free.</p>
             </div>
-            <button className=' text-black bg-white rounded-full m-2 p-2'>Create account</button>
-       </div>
+            <a href='#speciality' className=' text-black bg-white rounded-full m-2 p-2'>Book Appointment</a>
+       </div> 
        <div>
         <img src={assets.header_img} alt="" />
        </div>
