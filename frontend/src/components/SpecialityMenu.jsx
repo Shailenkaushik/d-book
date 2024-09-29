@@ -1,10 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { specialityData } from '../assets/assets'
 
  
 
 const SpecialityMenu = () => {
 
+  const [finalhours,setFinalHours]=useState([]);
+  const [finaldates,setFinalDates]=useState([]);
+
+    function timecheck(){
+       const d=new Date();
+       var hour=d.getHours()+1;
+       var date=d.getDate();
+       console.log(hour);
+       console.log(date);
+       const upcominghours=[];
+       const upcomingdates=[];
+       for(var i=1;i<6;i++){
+        if(i%2==0){
+ 
+          upcominghours.push(hour + ':30');
+          upcomingdates.push(date);
+        }
+        else{
+
+          upcominghours.push(hour + ':00');
+          upcomingdates.push(date);
+          hour++; 
+        }
+        date++;
+        if(date>30) date=0;
+         
+       }
+       setFinalDates(upcomingdates);
+       setFinalHours(upcominghours);
+       console.log(finalhours);
+       console.log(finaldates);
+    }  
+    useEffect(()=>{
+      timecheck();
+    },[])
+
+   
      const listItems=specialityData.map((doctor)=>
           <div className=' grid justify-items-center align-items-center  m-2 p-2'>
             <div>
@@ -25,6 +62,8 @@ const SpecialityMenu = () => {
       <div>
       
       </div>
+
+      
     </div>
   )
 }
